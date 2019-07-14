@@ -8,68 +8,66 @@ import jm.util.Play;
 import jm.util.View;
 import jm.util.Write;
 
+import javax.swing.text.ViewFactory;
+
 import static jm.constants.Durations.*;
 import static jm.constants.Pitches.*;
-import static jm.constants.ProgramChanges.PIANO;
+import static jm.constants.ProgramChanges.*;
 
 public class SummSummSumm {
+
+    // englisches B = deutsches H
+    public static final int h0 = b0;
+    public static final int h1 = b1;
+    public static final int h2 = b2;
+    public static final int h3 = b3;
+    public static final int h4 = b4;
+    public static final int h5 = b5;
+    public static final int h6 = b6;
+    public static final int h7 = b7;
+    public static final int h8 = b8;
 
 
     public static void main(String[] args) {
 
         SummSummSumm main = new SummSummSumm();
-        main.playBienchen();
+        main.play();
     }
 
-    protected void playBienchen() {
-        final Part part = new Part("Part Beschreibung", PIANO);
-        part.add(getPhrase1());
-        part.add(getPhrase2());
-        part.add(getPhrase1().copy());
+    protected void play() {
+        final Part part = new Part("Voice", VOICE);
+        part.addPhrase(getPhrase1());
+        part.addPhrase(getPhrase2());
 
-        final Score score = new Score("Piano", 120.0);
-        score.add(part);
-        View.notate(score);
-        Play.midi(score,true);
+        final Score score = new Score("Summ, Summ, Summ", 120.0);
+        score.addPart(part);
+        Play.midi(score, true);
     }
 
     private Phrase getPhrase1() {
-        final Phrase phrase = new Phrase("Phrase 1", 0.0, PIANO, true);
+        final Phrase phrase = new Phrase("Takt 1", 0.0, VOICE, true);
 
         int[] pitchArray = {
-                G4, F4, E4, D4,
-                E4, F4, D4, C4
-        };
+                c5, b4, a4};
         double[] rhythmArray = {
-                HALF_NOTE, HALF_NOTE,
-                WHOLE_NOTE,
-                QUARTER_NOTE, QUARTER_NOTE, QUARTER_NOTE, QUARTER_NOTE,
-                WHOLE_NOTE
+                QUARTER_NOTE, QUARTER_NOTE, HALF_NOTE
         };
         phrase.addNoteList(pitchArray, rhythmArray);
+//        View.notation(phrase);
         return phrase;
     }
 
     private Phrase getPhrase2() {
-        final Phrase phrase = new Phrase("Phrase 2", 0.0, PIANO, true);
+        final Phrase phrase = new Phrase("Takt 2", 0.0, VOICE, true);
 
         int[] pitchArray = {
-                E4, F4, G4, E4,
-                D4, E4, F4, D4,
-                E4, F4, G4, E4,
-                D4, E4, F4, D4
-        };
+                g4, a4, b4, g4, f4};
         double[] rhythmArray = {
-                QUARTER_NOTE, QUARTER_NOTE, QUARTER_NOTE, QUARTER_NOTE,
-                QUARTER_NOTE, QUARTER_NOTE, QUARTER_NOTE, QUARTER_NOTE,
-                QUARTER_NOTE, QUARTER_NOTE, QUARTER_NOTE, QUARTER_NOTE,
-                QUARTER_NOTE, QUARTER_NOTE, QUARTER_NOTE, QUARTER_NOTE
+                EIGHTH_NOTE, EIGHTH_NOTE, EIGHTH_NOTE, EIGHTH_NOTE, HALF_NOTE,
         };
         phrase.addNoteList(pitchArray, rhythmArray);
+//        View.notation(phrase);
         return phrase;
     }
-
-
-
 
 }
