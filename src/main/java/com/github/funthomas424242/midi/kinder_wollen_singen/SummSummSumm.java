@@ -1,20 +1,20 @@
 package com.github.funthomas424242.midi.kinder_wollen_singen;
 
+import jm.constants.ProgramChanges;
+import jm.constants.Scales;
 import jm.music.data.Part;
 import jm.music.data.Phrase;
 import jm.music.data.Score;
-import jm.music.tools.Mod;
 import jm.util.Play;
 import jm.util.View;
 import jm.util.Write;
 
-import javax.swing.text.ViewFactory;
-
 import static jm.constants.Durations.*;
 import static jm.constants.Pitches.*;
-import static jm.constants.ProgramChanges.*;
 
 public class SummSummSumm {
+
+    public static final int INSTRUMENT = ProgramChanges.PIANO;
 
     // englisches B = deutsches H
     public static final int h0 = b0;
@@ -35,17 +35,23 @@ public class SummSummSumm {
     }
 
     protected void play() {
-        final Part part = new Part("Voice", VOICE);
-        part.addPhrase(getPhrase1());
-        part.addPhrase(getPhrase2());
+        final boolean show = false;
+        final Part part = new Part( "Piano", INSTRUMENT);
+        part.addPhrase(getPhrase1(show));
+        part.addPhrase(getPhrase2(show));
+        part.addPhrase(getPhrase3(show));
+        part.addPhrase(getPhrase3(show));
+        part.addPhrase(getPhrase1(show));
+        part.addPhrase(getPhrase2(show));
 
         final Score score = new Score("Summ, Summ, Summ", 120.0);
         score.addPart(part);
+        Write.midi(score, "SumSumSum.mid");
         Play.midi(score, true);
     }
 
-    private Phrase getPhrase1() {
-        final Phrase phrase = new Phrase("Takt 1", 0.0, VOICE, true);
+    private Phrase getPhrase1(boolean show) {
+        final Phrase phrase = new Phrase("Takt 1", 0.0, INSTRUMENT, true);
 
         int[] pitchArray = {
                 c5, b4, a4};
@@ -53,12 +59,12 @@ public class SummSummSumm {
                 QUARTER_NOTE, QUARTER_NOTE, HALF_NOTE
         };
         phrase.addNoteList(pitchArray, rhythmArray);
-//        View.notation(phrase);
+        if (show) View.notation(phrase);
         return phrase;
     }
 
-    private Phrase getPhrase2() {
-        final Phrase phrase = new Phrase("Takt 2", 0.0, VOICE, true);
+    private Phrase getPhrase2(final boolean show) {
+        final Phrase phrase = new Phrase("Takt 2", 0.0, INSTRUMENT, true);
 
         int[] pitchArray = {
                 g4, a4, b4, g4, f4};
@@ -66,7 +72,20 @@ public class SummSummSumm {
                 EIGHTH_NOTE, EIGHTH_NOTE, EIGHTH_NOTE, EIGHTH_NOTE, HALF_NOTE,
         };
         phrase.addNoteList(pitchArray, rhythmArray);
-//        View.notation(phrase);
+        if (show) View.notation(phrase);
+        return phrase;
+    }
+
+    private Phrase getPhrase3(boolean show) {
+        final Phrase phrase = new Phrase("Takt 3", 0.0, INSTRUMENT, true);
+
+        int[] pitchArray = {
+                a4, b4, c5, a4, g4, a4, b4, g4};
+        double[] rhythmArray = {
+                EIGHTH_NOTE, EIGHTH_NOTE, EIGHTH_NOTE, EIGHTH_NOTE, EIGHTH_NOTE, EIGHTH_NOTE, EIGHTH_NOTE, EIGHTH_NOTE
+        };
+        phrase.addNoteList(pitchArray, rhythmArray);
+        if (show) View.notation(phrase);
         return phrase;
     }
 
