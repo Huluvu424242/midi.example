@@ -57,20 +57,7 @@
         </repository>
     </repositories>
 
-    <pluginRepositories>
-        <pluginRepository>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-            <id>bintray-enilink-maven</id>
-            <name>bintray-plugins</name>
-            <url>http://dl.bintray.com/enilink/maven</url>
-        </pluginRepository>
-        <pluginRepository>
-            <id>reficio</id>
-            <url>http://repo.reficio.org/maven/</url>
-        </pluginRepository>
-    </pluginRepositories>
+   
 
     <dependencies>
         <!-- https://mvnrepository.com/artifact/com.explodingart/jmusic -->
@@ -273,7 +260,7 @@
                 <plugin>
                     <groupId>org.jacoco</groupId>
                     <artifactId>jacoco-maven-plugin</artifactId>
-                    <version>0.7.7.201606060606</version>
+                    <version>0.8.4</version>
                 </plugin>
                 <plugin>
                     <groupId>biz.aQute.bnd</groupId>

@@ -1,7 +1,5 @@
-package com.github.funthomas424242.midi.sounds.simple;
+package com.github.funthomas424242.midi.sample;
 
-import jm.constants.ProgramChanges;
-import jm.music.data.Note;
 import jm.music.data.Part;
 import jm.music.data.Phrase;
 import jm.music.data.Score;
@@ -10,72 +8,22 @@ import jm.util.Play;
 import jm.util.View;
 import jm.util.Write;
 
-import static jm.constants.Durations.*;
+import static jm.constants.Durations.SQ;
 import static jm.constants.Pitches.*;
+import static jm.constants.Pitches.CS5;
 import static jm.constants.ProgramChanges.PIANO;
 
-public class SummBienchenSumm {
+public class PianoSample {
 
 
     public static void main(String[] args) {
 
-        SummBienchenSumm main=new SummBienchenSumm();
-        main.playBienchen();
-        main.playPianoSample();
-
-
-    }
-
-    protected void playBienchen(){
-        final Part part = new Part("Part Beschreibung", PIANO);
-        part.add(getPhrase1());
-        part.add(getPhrase2());
-        part.add(getPhrase1().copy());
-
-        final Score score = new Score("Piano",120.0);
-        score.add(part);
-        View.notate(score);
-        Play.midi(score);
-    }
-
-    private  Phrase getPhrase1() {
-        final Phrase phrase = new Phrase("Phrase 1", 0.0, PIANO, true);
-
-        int[] pitchArray = {
-                G4, F4, E4, D4,
-                E4,F4,D4,C4
-        };
-        double[] rhythmArray = {
-                HALF_NOTE, HALF_NOTE,
-                WHOLE_NOTE,
-                QUARTER_NOTE, QUARTER_NOTE, QUARTER_NOTE, QUARTER_NOTE,
-                WHOLE_NOTE
-        };
-        phrase.addNoteList(pitchArray,rhythmArray);
-        return phrase;
-    }
-
-    private  Phrase getPhrase2() {
-        final Phrase phrase = new Phrase("Phrase 2",0.0, PIANO, true);
-
-        int[] pitchArray = {
-                E4, F4,G4,E4,
-                D4,E4,F4,D4,
-                E4,F4,G4,E4,
-                D4,E4,F4,D4
-        };
-        double[] rhythmArray = {
-                QUARTER_NOTE, QUARTER_NOTE, QUARTER_NOTE, QUARTER_NOTE,
-                QUARTER_NOTE, QUARTER_NOTE, QUARTER_NOTE, QUARTER_NOTE,
-                QUARTER_NOTE, QUARTER_NOTE, QUARTER_NOTE, QUARTER_NOTE,
-                QUARTER_NOTE, QUARTER_NOTE, QUARTER_NOTE, QUARTER_NOTE
-        };
-        phrase.addNoteList(pitchArray,rhythmArray);
-        return phrase;
+        final PianoSample main = new PianoSample();
+        main.play();
     }
 
 
-    protected void playPianoSample() {
+    protected void play() {
         Score score = new Score("Piano Phase", 120.0);
         Part p1 = new Part("Piano1", PIANO, 0);
         Part p2 = new Part("Piano2", PIANO, 1);
@@ -123,7 +71,8 @@ public class SummBienchenSumm {
         //score.addPart(p2);
         //OK now we SMF write
         Write.midi(score, "PianoPhase.mid");
-        Play.midi(score);
+        View.notate(score);
+        Play.midi(score, true);
     }
 
 
