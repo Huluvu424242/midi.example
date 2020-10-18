@@ -1,5 +1,5 @@
 ![Github CI](https://github.com/Huluvu424242/midi.example/workflows/Github%20CI/badge.svg)
-[![Build Status](https://travis-ci.org/FunThomas424242/midi.example.svg?branch=master)](https://travis-ci.org/FunThomas424242/midi.example)
+[![Build Status](https://travis-ci.org/Huluvu424242/midi.example.svg?branch=master)](https://travis-ci.org/Huluvu424242/midi.example)
 
 # midi.example
 Beispiele zur programatischen Erstellung einer Midi Datei
