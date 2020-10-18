@@ -17,20 +17,20 @@
     </properties>
 
     <scm>
-        <url>https://github.com/FunThomas424242/midi.example</url>
-        <connection>scm:git:https://github.com/FunThomas424242/midi.example.git</connection>
-        <developerConnection>scm:git:https://github.com/FunThomas424242/midi.example.git</developerConnection>
+        <url>https://github.com/Huluvu424242/midi.example</url>
+        <connection>scm:git:https://github.com/Huluvu424242/midi.example.git</connection>
+        <developerConnection>scm:git:https://github.com/Huluvu424242/midi.example.git</developerConnection>
         <tag>HEAD</tag>
     </scm>
 
     <ciManagement>
         <system>Travis</system>
-        <url>https://travis-ci.org/FunThomas424242/midi.example</url>
+        <url>https://travis-ci.org/Huluvu424242/midi.example</url>
     </ciManagement>
 
     <issueManagement>
         <system>Issue</system>
-        <url>https://github.com/FunThomas424242/midi.example/issues</url>
+        <url>https://github.com/Huluvu424242/midi.example/issues</url>
     </issueManagement>
 
     <distributionManagement>
