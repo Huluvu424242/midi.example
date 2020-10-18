@@ -1,7 +1,6 @@
 package com.github.funthomas424242.midi.kinder_wollen_singen;
 
 import jm.constants.ProgramChanges;
-import jm.constants.Scales;
 import jm.music.data.Part;
 import jm.music.data.Phrase;
 import jm.music.data.Score;
@@ -9,8 +8,22 @@ import jm.util.Play;
 import jm.util.View;
 import jm.util.Write;
 
-import static jm.constants.Durations.*;
-import static jm.constants.Pitches.*;
+import static jm.constants.Durations.EIGHTH_NOTE;
+import static jm.constants.Durations.HALF_NOTE;
+import static jm.constants.Durations.QUARTER_NOTE;
+import static jm.constants.Pitches.a4;
+import static jm.constants.Pitches.b0;
+import static jm.constants.Pitches.b1;
+import static jm.constants.Pitches.b2;
+import static jm.constants.Pitches.b3;
+import static jm.constants.Pitches.b4;
+import static jm.constants.Pitches.b5;
+import static jm.constants.Pitches.b6;
+import static jm.constants.Pitches.b7;
+import static jm.constants.Pitches.b8;
+import static jm.constants.Pitches.c5;
+import static jm.constants.Pitches.f4;
+import static jm.constants.Pitches.g4;
 
 public class SummSummSumm {
 
